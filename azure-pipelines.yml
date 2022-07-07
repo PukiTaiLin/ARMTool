@@ -15,7 +15,7 @@ steps:
   inputs:
     ScriptType: 'FilePath'
     ScriptPath: './AzDeployScript.ps1'
-    preferredAzurePowerShellVersion: '5.1.1.4'
+    preferredAzurePowerShellVersion: '5.1.1'
 #- task: PowerShell@2
  # inputs:
   #  filePath: './AzDeployScript.ps1'
