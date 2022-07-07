@@ -14,12 +14,6 @@ steps:
   inputs:
     targetType: 'inline'
     script: 'Connect-AzAccount' 
-- task: AzurePowerShell@5
-  inputs:
-    azureSubscription: 'MSEC_Candidates_Homeworks_new'
-    ScriptType: 'InlineScript'
-    Inline: 'Connect-AzAccount'
-    azurePowerShellVersion: 'LatestVersion'
 - task: PowerShell@2
   inputs:
     filePath: './AzDeployScript.ps1'
