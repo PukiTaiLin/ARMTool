@@ -13,19 +13,10 @@ steps:
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
-    script: 'Set-Location C:\agents\_work\3\s'
-- task: AzureCLI@2
-  inputs:
-    scriptType: 'ps'
-    scriptLocation: 'inlineScript'
-    inlineScript: 'Connect-AzAccount'
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: 'Connect-AzAccount'
-    
+    script: 'Connect-AzAccount' 
 - task: AzurePowerShell@5
   inputs:
+    azureSubscription: 'MSEC_Candidates_Homeworks_new'
     ScriptType: 'InlineScript'
     Inline: 'Connect-AzAccount'
     azurePowerShellVersion: 'LatestVersion'
@@ -33,4 +24,8 @@ steps:
 #- task: PowerShell@2
  # inputs:
   #  filePath: './AzDeployScript.ps1'
+  #- task: PowerShell@2
+  #inputs:
+   # targetType: 'inline'
+    #script: 'Set-Location C:\agents\_work\3\s'
 
