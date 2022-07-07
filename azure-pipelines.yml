@@ -11,11 +11,13 @@ pool:
 
 steps:
 
-- task: AzurePowerShell@5
-  inputs:
-    ScriptType: 'FilePath'
-    ScriptPath: './AzDeployScript.ps1'
-    preferredAzurePowerShellVersion: '5.1.1'
+  - task: AzurePowerShell@5
+    inputs:
+      ScriptType: 'InlineScript'
+      Inline: './AzDeployScript.ps1'
+      preferredAzurePowerShellVersion: '5.1.1'
+
+
 #- task: PowerShell@2
  # inputs:
   #  filePath: './AzDeployScript.ps1'
