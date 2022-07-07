@@ -10,10 +10,10 @@ pool:
   name: "Default"
 
 steps:
-- task: PowerShell@5
+- task: AzurePowerShell@5
   inputs:
-    targetType: 'inline'
-    script: 'Connect-AzAccount'
+    ScriptType: 'InlineScript'
+    Inline: 'ConnectAzAccount'
 - task: PowerShell@2
   inputs:
     filePath: './AzDeployScript.ps1'
