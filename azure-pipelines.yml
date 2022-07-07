@@ -20,7 +20,11 @@ steps:
     ScriptType: 'InlineScript'
     Inline: 'Connect-AzAccount'
     azurePowerShellVersion: 'LatestVersion'
-  
+- task: PowerShell@2
+  inputs:
+    filePath: './AzDeployScript.ps1'
+    workingDirectory: '$(System.DefaultWorkingDirectory)'
+
 #- task: PowerShell@2
  # inputs:
   #  filePath: './AzDeployScript.ps1'
