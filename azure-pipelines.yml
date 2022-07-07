@@ -11,15 +11,16 @@ pool:
 
 steps:
 
-  - task: AzurePowerShell@5
-    inputs:
-    connectedServiceNameARM: '$(PukiTaiLin)'
+- task: AzurePowerShell@4
+  displayName: Do important stuff
+  inputs:
+    connectedServiceNameARM: '$(AzDoServiceConnectionName)'
     scriptType: 'FilePath'
     scriptPath: './AzDeployScript.ps1'
     scriptArguments: '-ImportantDirectory "$(ImportantDirectory)"'
     errorActionPreference: 'stop'
     failOnStandardError: true
-    azurePowerShellVersion: '5.1.1'
+    azurePowerShellVersion: 'LatestVersion'
 
 
 #- task: PowerShell@2
