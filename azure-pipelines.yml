@@ -16,5 +16,10 @@ steps:
     script: 'Set-Location C:\agents\_work\3\s'
 - task: PowerShell@2
   inputs:
-    filePath: './AzDeployScript.ps1'
+    targetType: 'inline'
+    script: 'Connect-AzAccount'
+  
+#- task: PowerShell@2
+ # inputs:
+  #  filePath: './AzDeployScript.ps1'
 
