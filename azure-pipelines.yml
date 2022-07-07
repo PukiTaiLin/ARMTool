@@ -14,5 +14,5 @@ steps:
   displayName: 'Run a one-line script'
 - task: PowerShell@2
   inputs:
-    filePath: './ARMTool/AzDeployScript.ps1'
+    filePath: './AzDeployScript.ps1'
 
