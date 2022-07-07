@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminUsername": {
+            "value": "inbal" 
+        },
+        "adminPassword": {
+            "value": "Inbal12345678!" 
+        },
+        /*"dnsLabelPrefix": {
+            "value": "inbalDNS" // TODO: Fill in parameter value
+        },*/
+        "publicIpName": {
+            "value": "myPublicIP"
+        },
+        "publicIPAllocationMethod": {
+            "value": "Dynamic"
+        },
+        "publicIpSku": {
+            "value": "Basic"
+        },
+        "OSVersion": {
+            "value": "2019-datacenter-gensecond"
+        },
+        "vmSize": {
+            "value": "Standard_D2s_v3"
+        },
+        "vmName": {
+            "value": "simple-vmInbal"
+        }
+    }
+}

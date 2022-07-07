@@ -1,0 +1,37 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageCount": {
+      "type": "int",
+      "defaultValue": 2 /*creating 2 storage accounts*/
+    }
+  },
+    /*"variables": {
+        "linked-template": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/mslearn-arm-Module-sample/storage.json",
+        "linked-template-two": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/mslearn-arm-Module-sample/identity.json"
+    },*/
+    "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-09-01",
+      "name": "[concat('inbstorageaccount00',copyIndex('storageaccountcopy',3))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {   "supportsHttpsTrafficOnly": true
+      },
+      "copy": {
+        "name": "storageaccountcopy", /*name of the loop*/
+        "count": "[parameters('storageCount')]" /*number of iterations*/
+       /* "mode": "serial" <or> "parallel",
+        "batchSize": <number-to-deploy-serially>*/
+      }
+    }
+  ]
+}
+
+
+
