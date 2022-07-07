@@ -10,17 +10,10 @@ pool:
   name: "Default"
 
 steps:
-
-- task: AzurePowerShell@4
-  displayName: Do important stuff
+- task: PowerShell@2
   inputs:
-    connectedServiceNameARM: '$(AzDoServiceConnectionName)'
-    scriptType: 'FilePath'
-    scriptPath: './DoImportantStuff.ps1'
-    scriptArguments: '-ImportantDirectory "$(ImportantDirectory)"'
-    errorActionPreference: 'stop'
-    failOnStandardError: true
-    azurePowerShellVersion: 'LatestVersion'
+    filePath: './AzDeployScript.ps1'
+
 
 #- task: PowerShell@2
  # inputs:
