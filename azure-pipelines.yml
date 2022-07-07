@@ -13,7 +13,7 @@ steps:
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
-    script: 'Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force'
+    script: 'Get-InstalledModule'
 
 
 #- task: PowerShell@2
