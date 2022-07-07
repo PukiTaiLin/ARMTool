@@ -13,7 +13,7 @@ steps:
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
-    script: '[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12'
+    script: 'Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force'
 
 
 #- task: PowerShell@2
