@@ -12,18 +12,6 @@ steps:
 
 - task: PowerShell@2
   inputs:
-    targetType: 'inline'
-    script: 'Connect-AzAccount -Tenant 72f988bf-86f1-41af-91ab-2d7cd011db47 -SubscriptionId a8108c2b-496c-424d-8347-ecc8afb6384c'
-- task: PowerShell@2
-  inputs:
     filePath: './AzDeployScript.ps1'
 
-
-#- task: PowerShell@2
- # inputs:
-  #  filePath: './AzDeployScript.ps1'
-  #- task: PowerShell@2
-  #inputs:
-   # targetType: 'inline'
-    #script: 'Set-Location C:\agents\_work\3\s'
 
