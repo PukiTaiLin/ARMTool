@@ -10,7 +10,7 @@ pool:
   name: "Default"
 
 steps:
-- task: PowerShell@2
+- task: PowerShell@5
   inputs:
     targetType: 'inline'
     script: 'Connect-AzAccount'
