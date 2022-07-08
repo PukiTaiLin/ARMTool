@@ -1,8 +1,8 @@
 #Create containerA with context to the storage accounts(Container permmision? -Permission Container)
-$ctx1 = New-AzStorageContext -StorageAccountName storageaccount1 -UseConnectedAccount
+$ctx1 = New-AzStorageContext -StorageAccountName storageaccountinb1 -UseConnectedAccount
 New-AzStorageContainer -Name inbalcontainera -Context $ctx1 -Permission Container
 #Create containerB with context to the storage accounts(Container permmision? -Permission Container)
-$ctx2 = New-AzStorageContext -StorageAccountName storageaccount2 -UseConnectedAccount
+$ctx2 = New-AzStorageContext -StorageAccountName storageaccountinb2 -UseConnectedAccount
 New-AzStorageContainer -Name inbalcontainerb -Context $ctx2
 
 #Create 100 blobs
@@ -18,7 +18,7 @@ function Create100BlobsInNewFolder
         Set-Content $fileToCreate 'Blob'
         #Upload the New Blob into ContainerA 
         Set-AzStorageBlobContent -Container inbalcontainera -File $fileToCreate -Context $ctx1
-        #az storage blob directory upload --Container inbalcontainera -account-name storageaccount1 -s $fileToCreate -d . --recursive
+        #az storage blob directory upload --Container inbalcontainera -account-name storageaccountinb1 -s $fileToCreate -d . --recursive
     }
     Write-Output "finish blob"
 }
