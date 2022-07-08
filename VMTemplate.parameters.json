@@ -8,9 +8,6 @@
         "adminPassword": {
             "value": "Inbal12345678!" 
         },
-        /*"dnsLabelPrefix": {
-            "value": "inbalDNS" // TODO: Fill in parameter value
-        },*/
         "publicIpName": {
             "value": "myPublicIP"
         },
@@ -27,7 +24,7 @@
             "value": "Standard_D2s_v3"
         },
         "vmName": {
-            "value": "simple-vmInbal"
+            "value": "inbalsimple-vm"
         }
     }
 }
