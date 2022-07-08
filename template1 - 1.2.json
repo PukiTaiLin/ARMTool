@@ -4,13 +4,9 @@
   "parameters": {
     "storageCount": {
       "type": "int",
-      "defaultValue": 2 /*creating 2 storage accounts*/
+      "defaultValue": 2
     }
   },
-    /*"variables": {
-        "linked-template": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/mslearn-arm-Module-sample/storage.json",
-        "linked-template-two": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/mslearn-arm-Module-sample/identity.json"
-    },*/
     "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
@@ -24,10 +20,9 @@
       "properties": {   "supportsHttpsTrafficOnly": true
       },
       "copy": {
-        "name": "storageaccountcopy", /*name of the loop*/
-        "count": "[parameters('storageCount')]" /*number of iterations*/
-       /* "mode": "serial" <or> "parallel",
-        "batchSize": <number-to-deploy-serially>*/
+        "name": "storageaccountcopy",
+        "count": "[parameters('storageCount')]" 
+
       }
     }
   ]
