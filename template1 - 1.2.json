@@ -11,7 +11,7 @@
     {
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2021-09-01",
-      "name": "[concat('inbstorageaccount00',copyIndex('storageaccountcopy',3))]",
+      "name": "[concat('inbstorageaccount',copyIndex('storageaccountcopy',0))]",
       "location": "[resourceGroup().location]",
       "sku": {
         "name": "Standard_LRS"
