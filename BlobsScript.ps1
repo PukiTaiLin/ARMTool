@@ -1,9 +1,9 @@
 #Create containerA with context to the storage accounts(Container permmision? -Permission Container)
 $ctx1 = New-AzStorageContext -StorageAccountName storageaccountinb1 -UseConnectedAccount
-New-AzStorageContainer -Name inbalcontainera -Context $ctx1 -Permission Off
+New-AzStorageContainer -Name inbalcontainera -Permission Off -Context $ctx1 
 #Create containerB with context to the storage accounts(Container permmision? -Permission Container)
-$ctx2 = New-AzStorageContext -StorageAccountName storageaccountinb2 -UseConnectedAccount -Permission Off
-New-AzStorageContainer -Name inbalcontainerb -Context $ctx2
+$ctx2 = New-AzStorageContext -StorageAccountName storageaccountinb2 -UseConnectedAccount 
+New-AzStorageContainer -Name inbalcontainerb -Permission Off -Context $ctx2
 
 #Create 100 blobs
 function Create100BlobsInNewFolder 
