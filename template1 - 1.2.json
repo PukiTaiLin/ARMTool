@@ -17,7 +17,7 @@
         "name": "Standard_LRS"
       },
       "kind": "Storage",
-      "properties": {   "supportsHttpsTrafficOnly": true
+      "properties": {"supportsHttpsTrafficOnly": true
       },
       "copy": {
         "name": "storageaccountcopy",
