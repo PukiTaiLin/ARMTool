@@ -14,7 +14,7 @@ function Create100BlobsInNewFolder
     for( $num = 0; $num -le 2  ; $num++ )
     {
         Write-Output $num
-        $fileToCreate = ".\100_Blobs\$File$num.txt"
+        $fileToCreate = ".\100_Blobs\$num.txt"
         Set-Content $fileToCreate 'Blob'
         #Upload the New Blob into ContainerA 
         Set-AzStorageBlobContent -Container inbalcontainera -File $fileToCreate -Context $ctx1 -Force
