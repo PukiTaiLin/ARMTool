@@ -21,7 +21,7 @@
       },
       "copy": {
         "name": "storageaccountcopy",
-        "count": "[parameters('storageaccountinb')]" 
+        "count": "[parameters('storageCount')]" 
 
       }
     }
