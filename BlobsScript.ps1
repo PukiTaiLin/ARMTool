@@ -1,9 +1,9 @@
 #Create containerA 
-$ctx1 = New-AzStorageContext -StorageAccountName inbstorageaccount0 -UseConnectedAccount
-New-AzStorageContainer -Name containertest -Context $ctx1 -Permission Blob
-#Create containerB 
 $ctx1 = New-AzStorageContext -StorageAccountName inbstorageaccount1 -UseConnectedAccount
 New-AzStorageContainer -Name containertest -Context $ctx1 -Permission Blob
+#Create containerB 
+$ctx2 = New-AzStorageContext -StorageAccountName inbstorageaccount2 -UseConnectedAccount
+New-AzStorageContainer -Name containertest -Context $ctx2 -Permission Blob
 
 #Create 100 blobs
 function Create100BlobsInNewFolder 
@@ -18,18 +18,18 @@ function Create100BlobsInNewFolder
         Set-Content $fileToCreate 'Blob'
         Write-Output $fileToCreate
         #Upload the New Blob into ContainerA 
-        #Set-AzStorageAccount -ResourceGroupName myResourceGroupInbal06 -Name inbstorageaccount0 | Set-AzStorageBlobContent -Container containertest -File .\100_Blobs\0.txt -Blob blob\0$num
-        Set-AzStorageAccount -ResourceGroupName myResourceGroupInbal06 -Name inbstorageaccount0 | Set-AzStorageBlobContent -Container containertest -File $fileToCreate 
+        #Set-AzStorageAccount -ResourceGroupName myResourceGroupInbal -Name inbstorageaccount1 | Set-AzStorageBlobContent -Container containertest -File .\100_Blobs\0.txt -Blob blob\0$num
+        Set-AzStorageAccount -ResourceGroupName myResourceGroupInbal -Name inbstorageaccount1 | Set-AzStorageBlobContent -Container containertest -File $fileToCreate 
     }
     Write-Output "finish blob"
 }
 Create100BlobsInNewFolder
 
 
-$srcStorageKey = Get-AzStorageAccountKey -Name inbstorageaccount0 -ResourceGroupName myResourceGroupInbal06  
-$destStorageKey = Get-AzStorageAccountKey -Name inbstorageaccount1 -ResourceGroupName myResourceGroupInbal06
-$srcContext = New-AzStorageContext -StorageAccountName inbstorageaccount0 -StorageAccountKey $srcStorageKey.Value[0]
-$destContext = New-AzStorageContext -StorageAccountName inbstorageaccount1 -StorageAccountKey $destStorageKey.Value[0]
+$srcStorageKey = Get-AzStorageAccountKey -Name inbstorageaccount1 -ResourceGroupName myResourceGroupInbal  
+$destStorageKey = Get-AzStorageAccountKey -Name inbstorageaccount2 -ResourceGroupName myResourceGroupInbal
+$srcContext = New-AzStorageContext -StorageAccountName inbstorageaccount1 -StorageAccountKey $srcStorageKey.Value[0]
+$destContext = New-AzStorageContext -StorageAccountName inbstorageaccount2 -StorageAccountKey $destStorageKey.Value[0]
 #$srcBlob = Get-AzStorageBlob -Container $containerName -Blob $blobName  -Context $ctx 
 #$destBlob =  $srcBlob | Copy-AzStorageBlob  -DestContainer "destcontainername" -DestBlob "destblobname"
 function copyFromAtoB { 
