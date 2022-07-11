@@ -1,9 +1,9 @@
 #Create containerA 
 $ctx1 = New-AzStorageContext -StorageAccountName inbstorageaccount1 -UseConnectedAccount
-New-AzStorageContainer -Name containertesta -Context $ctx1 -Permission Blob
+New-AzStorageContainer -Name containera -Context $ctx1 -Permission Blob
 #Create containerB 
 $ctx2 = New-AzStorageContext -StorageAccountName inbstorageaccount2 -UseConnectedAccount
-New-AzStorageContainer -Name containertestb -Context $ctx2 -Permission Blob
+New-AzStorageContainer -Name containerb -Context $ctx2 -Permission Blob
 
 #Create 100 blobs
 function Create100BlobsInNewFolder 
@@ -18,8 +18,8 @@ function Create100BlobsInNewFolder
         Set-Content $fileToCreate 'BlobBlob'
         Write-Output $fileToCreate
         #Upload the New Blob into ContainerA
-        Set-AzStorageAccount -ResourceGroupName myResourceGroupInbal -Name inbstorageaccount1 | Set-AzStorageBlobContent -Container containerA -File $fileToCreate 
-        #Option 2: Set-AzStorageAccount -ResourceGroupName myResourceGroupInbal -Name inbstorageaccount1 | Set-AzStorageBlobContent -Container containerA -File .\100_Blobs\0.txt -Blob blob\0$num
+        Set-AzStorageAccount -ResourceGroupName myResourceGroupInbal -Name inbstorageaccount1 | Set-AzStorageBlobContent -Container containera -File $fileToCreate 
+        #Option 2: Set-AzStorageAccount -ResourceGroupName myResourceGroupInbal -Name inbstorageaccount1 | Set-AzStorageBlobContent -Container containera -File .\100_Blobs\0.txt -Blob blob\0$num
     }
     Write-Output "                             Finish create & upload blob"
 }
