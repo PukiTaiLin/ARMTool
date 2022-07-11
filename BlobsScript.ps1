@@ -26,17 +26,25 @@ function Create100BlobsInNewFolder
 Create100BlobsInNewFolder
 
 
-$srcStorageKey = Get-AzStorageAccountKey -Name inbstorageaccount1 -ResourceGroupName myResourceGroupInbal  
-$destStorageKey = Get-AzStorageAccountKey -Name inbstorageaccount2 -ResourceGroupName myResourceGroupInbal
-$srcContext = New-AzStorageContext -StorageAccountName inbstorageaccount1 -StorageAccountKey $srcStorageKey.Value[0]
-$destContext = New-AzStorageContext -StorageAccountName inbstorageaccount2 -StorageAccountKey $destStorageKey.Value[0]
-#$srcBlob = Get-AzStorageBlob -Container $containerName -Blob $blobName  -Context $ctx 
-#$destBlob =  $srcBlob | Copy-AzStorageBlob  -DestContainer "destcontainername" -DestBlob "destblobname"
-function copyFromAtoB { 
+$SrcStorageKey = Get-AzStorageAccountKey -Name inbstorageaccount1 -ResourceGroupName myResourceGroupInbal
+$SrcContext = New-AzStorageContext -StorageAccountName inbstorageaccount1 -StorageAccountKey $SrcStorageKey.Value[0]
+Write-Output $SrcContext
 
+$DestStorageKey = Get-AzStorageAccountKey -Name inbstorageaccount2 -ResourceGroupName myResourceGroupInbal
+$DestContext = New-AzStorageContext -StorageAccountName inbstorageaccount2 -StorageAccountKey $DestStorageKey.Value[0]
+
+$SrcBloboption1 = Get-AzStorageBlob -Container containera -Blob 00  -Context $ctx 
+$SrcBloboption2 = Get-AzStorageContainer -Name containera | Get-AzStorageBlob -IncludeDeleted
+Write-Output $SrcBloboption1
+Write-Output $SrcBloboption2
+
+
+function copyFromAtoB { 
+#TO Check if I need to use foreach blob in container
     for( $n = 0; $n -le 100  ; $n++ )
     {
-        Start-AzStorageBlobCopy -SrcBlob $srcBlob -SrcContainer blob -Context $srcContext -DestBlob $destBlob -DestContainer blob -DestContext $destContext
+        Start-AzStorageBlobCopy -SrcBlob $SrcBlob -SrcContainer blob -Context $SrcContext -DestBlob $DestBlob -DestContainer blob -DestContext $DestContext
     }
 }
-#copyFromAtoB
+#copyFromAtoB 
+
