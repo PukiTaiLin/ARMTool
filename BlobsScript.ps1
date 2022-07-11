@@ -11,17 +11,17 @@ function Create100BlobsInNewFolder
     Write-Output "                              START CREATE BLOB"
     #ToDo: create folder
     New-Item -ItemType Directory -Force -Path 100_Blobs
-    for( $num = 0; $num -le 100  ; $num++ )
+    for( $num = 0; $num -le 2  ; $num++ )
     {
         Write-Output $num
         $fileToCreate = ".\100_Blobs\0$num.txt"
-        Set-Content $fileToCreate 'Blob'
+        Set-Content $fileToCreate 'BlobBlob'
         Write-Output $fileToCreate
-        #Upload the New Blob into ContainerA 
-        #Set-AzStorageAccount -ResourceGroupName myResourceGroupInbal -Name inbstorageaccount1 | Set-AzStorageBlobContent -Container containertest -File .\100_Blobs\0.txt -Blob blob\0$num
-        Set-AzStorageAccount -ResourceGroupName myResourceGroupInbal -Name inbstorageaccount1 | Set-AzStorageBlobContent -Container containertest -File $fileToCreate 
+        #Upload the New Blob into ContainerA
+        Set-AzStorageAccount -ResourceGroupName myResourceGroupInbal -Name inbstorageaccount1 | Set-AzStorageBlobContent -Container containerA -File $fileToCreate 
+        #Option 2: Set-AzStorageAccount -ResourceGroupName myResourceGroupInbal -Name inbstorageaccount1 | Set-AzStorageBlobContent -Container containerA -File .\100_Blobs\0.txt -Blob blob\0$num
     }
-    Write-Output "finish blob"
+    Write-Output "                             Finish create & upload blob"
 }
 Create100BlobsInNewFolder
 
